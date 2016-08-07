@@ -1,0 +1,6 @@
+framework module Pods_The_Front_Page {
+  umbrella header "Pods-The Front Page-umbrella.h"
+
+  export *
+  module * { export * }
+}
