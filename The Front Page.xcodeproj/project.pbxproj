@@ -18,6 +18,8 @@
 		1E282FF91D56ABE800720EB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E282FF81D56ABE800720EB2 /* Assets.xcassets */; };
 		1E282FFC1D56ABE800720EB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E282FFA1D56ABE800720EB2 /* LaunchScreen.storyboard */; };
 		1E2830061D56B05700720EB2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E2830051D56B05700720EB2 /* GoogleService-Info.plist */; };
+		1EAD0CE41D594A8D00260B5A /* SocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD0CE31D594A8D00260B5A /* SocialViewController.swift */; };
+		1EAD0CE61D595B8900260B5A /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD0CE51D595B8900260B5A /* CircleView.swift */; };
 		1ECC276A1D57E97800EBF211 /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECC27691D57E97800EBF211 /* CheckInViewController.swift */; };
 		D996A1B1A5A2F8BCC88DF78D /* Pods_The_Front_Page.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDB2A76D2CD8FD878F520D7 /* Pods_The_Front_Page.framework */; };
 /* End PBXBuildFile section */
@@ -39,6 +41,8 @@
 		1E2830071D56B06100720EB2 /* The Front Page.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "The Front Page.entitlements"; sourceTree = "<group>"; };
 		1E482E1F1D5788FE0044454D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "Pods/../build/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		1E482E221D5789660044454D /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "Pods/../build/Release-iphoneos/FBSDKLoginKit/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		1EAD0CE31D594A8D00260B5A /* SocialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialViewController.swift; sourceTree = "<group>"; };
+		1EAD0CE51D595B8900260B5A /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		1ECC27691D57E97800EBF211 /* CheckInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
 		55B083515D2E9A8E157B4019 /* Pods-The Front Page.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Front Page.debug.xcconfig"; path = "Pods/Target Support Files/Pods-The Front Page/Pods-The Front Page.debug.xcconfig"; sourceTree = "<group>"; };
 		BFC2D40354ADD70EA64F3101 /* Pods-The Front Page.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Front Page.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Front Page/Pods-The Front Page.release.xcconfig"; sourceTree = "<group>"; };
@@ -71,6 +75,7 @@
 			children = (
 				1E282FF31D56ABE800720EB2 /* ViewController.swift */,
 				1ECC27691D57E97800EBF211 /* CheckInViewController.swift */,
+				1EAD0CE31D594A8D00260B5A /* SocialViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -82,6 +87,7 @@
 				1E0E6F3B1D5760E300C023AE /* RoundButton.swift */,
 				1E0E6F3D1D57639700C023AE /* DesignButton.swift */,
 				1E0E6F3F1D57652500C023AE /* DesignText.swift */,
+				1EAD0CE51D595B8900260B5A /* CircleView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -295,6 +301,8 @@
 				1E0E6F3C1D5760E300C023AE /* RoundButton.swift in Sources */,
 				1E282FF21D56ABE800720EB2 /* AppDelegate.swift in Sources */,
 				1E0E6F3E1D57639700C023AE /* DesignButton.swift in Sources */,
+				1EAD0CE61D595B8900260B5A /* CircleView.swift in Sources */,
+				1EAD0CE41D594A8D00260B5A /* SocialViewController.swift in Sources */,
 				1E0E6F371D574FF700C023AE /* DesignView.swift in Sources */,
 				1E0E6F3A1D5750DC00C023AE /* Constants.swift in Sources */,
 			);

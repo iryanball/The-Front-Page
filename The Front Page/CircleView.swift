@@ -1,15 +1,15 @@
 //
-//  DesignView.swift
+//  CircleView.swift
 //  The Front Page
 //
-//  Created by Ryan Ball on 07/08/2016.
+//  Created by Ryan Ball on 09/08/2016.
 //  Copyright © 2016 Ryan Ball. All rights reserved.
 //
 
 import UIKit
 
-class DesignView: UIView {
-
+class CircleView: UIImageView {
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -17,6 +17,12 @@ class DesignView: UIView {
         layer.shadowOpacity = 0.8
         layer.shadowRadius = 5.0
         layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
-        layer.cornerRadius = 2.0
     }
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        
+        layer.cornerRadius = self.frame.width / 2
+    }
+    
 }
