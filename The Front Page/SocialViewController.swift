@@ -34,6 +34,8 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
         imagePicker.delegate = self
         
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
+            self.posts = []
+            
             if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for snap in snapshot {
                     print("\(snap)")
@@ -62,15 +64,13 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
             
-            if let image = SocialViewController.imageCache.object(forKey: post.imageUrl) {
-                cell.configureCell(post: post, image: image)
-                return cell
+            if let img = SocialViewController.imageCache.object(forKey: post.imageUrl) {
+                cell.configureCell(post: post, img: img)
             } else {
                 cell.configureCell(post: post)
-                return cell
             }
+            return cell
         } else {
-            
             return PostCell()
         }
     }
@@ -95,9 +95,11 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func postButtonTapped(_ sender: AnyObject) {
+        captionField.resignFirstResponder()
         guard let caption = captionField.text, caption != "" else {
             print("Caption must be entered")
             return
+            
         }
         guard let image = imageAdd.image, imageSelected == true else {
             print("An image must be selected")
@@ -116,8 +118,35 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 } else {
                     print("Successfully uploaded image to Firebase storage")
                    let downloadURL = metadata?.downloadURL()?.absoluteString
+                    if let url = downloadURL {
+                        self.postToFirebase(imageUrl: url)
+                    }
+
                 }
             }
         }
     }
+    
+    func postToFirebase(imageUrl: String) {
+        let post: Dictionary<String, AnyObject> = [
+            "caption": captionField.text!,
+            "imageUrl": imageUrl,
+            "likes": 0
+        ]
+        
+        let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
+        firebasePost.setValue(post)
+        
+        captionField.text = ""
+        imageSelected = false
+        imageAdd.image = UIImage(named: "add-image")
+        
+        tableView.reloadData()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+
 }

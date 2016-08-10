@@ -326,7 +326,10 @@
                                             </imageView>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add a caption" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dyw-NW-Kkt" customClass="DesignText" customModule="The_Front_Page" customModuleProvider="target">
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="YmH-Ag-IEa" id="eqJ-LY-Ygl"/>
+                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5b-we-JUj" customClass="RoundButton" customModule="The_Front_Page" customModuleProvider="target">
                                                 <color key="backgroundColor" red="0.90379220247268677" green="0.25789561867713928" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -351,14 +354,14 @@
                                     <constraint firstAttribute="height" constant="65" id="hc7-x8-O9K"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="365" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ppt-5T-w70">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="475" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ppt-5T-w70">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="365" id="DAJ-l3-xBb" customClass="PostCell" customModule="The_Front_Page" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="365"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="475" id="DAJ-l3-xBb" customClass="PostCell" customModule="The_Front_Page" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="475"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DAJ-l3-xBb" id="BMl-sz-0JM">
-                                            <frame key="frameInset" width="375" height="365"/>
+                                            <frame key="frameInset" width="375" height="475"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OVT-l8-6ZN" customClass="DesignView" customModule="The_Front_Page" customModuleProvider="target">
@@ -373,7 +376,7 @@
                                                                                 <constraint firstAttribute="width" constant="60" id="Ugk-Nn-YMn"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MonkeyInJelly85" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOx-4O-TFl">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ryan Ball" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOx-4O-TFl">
                                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                                             <color key="textColor" red="0.90379220250000003" green="0.2578956187" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
@@ -386,8 +389,11 @@
                                                                         </imageView>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="XeL-Rc-iS7"/>
-                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Xgd-ED-Cww">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XeL-Rc-iS7">
+                                                                    <frame key="frameInset" minY="68" width="327" height="199"/>
+                                                                </imageView>
+                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Xgd-ED-Cww">
+                                                                    <frame key="frameInset" minY="275" width="327" height="140"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="jOT-ho-cgS"/>
@@ -434,6 +440,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="caption" destination="Xgd-ED-Cww" id="vdW-sj-m3w"/>
+                                            <outlet property="likeImage" destination="amU-Ht-RZN" id="pVe-Cx-JRn"/>
                                             <outlet property="likesLabel" destination="oVP-Nd-4gv" id="Fh0-Jd-z52"/>
                                             <outlet property="postImage" destination="XeL-Rc-iS7" id="G0b-uc-M5Z"/>
                                             <outlet property="profileImage" destination="dY2-A8-Rm3" id="oPN-lH-G7I"/>
@@ -480,8 +487,7 @@
         <image name="beerglass" width="59" height="135"/>
         <image name="empty-heart" width="70" height="70"/>
         <image name="f" width="352" height="328"/>
-        <image name="placeholder" width="567" height="312"/>
-        <image name="profile" width="113" height="155"/>
+        <image name="profile" width="115" height="115"/>
         <image name="sign-out" width="92" height="65"/>
         <image name="tfplogo" width="291" height="208"/>
     </resources>
