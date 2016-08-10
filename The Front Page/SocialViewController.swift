@@ -10,17 +10,42 @@ import UIKit
 import Firebase
 import SwiftKeychainWrapper
 
-class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var captionField: DesignText!
+    @IBOutlet weak var imageAdd: CircleView!
+    
+    var posts = [Post]()
+    var imagePicker: UIImagePickerController!
+    static var imageCache: NSCache<NSString, UIImage> = NSCache()
+    var imageSelected = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        
+        DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
+            if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                for snap in snapshot {
+                    print("\(snap)")
+                    if let postDict = snap.value as? Dictionary<String, AnyObject> {
+                        let key = snap.key
+                        let post = Post(postKey: key, postData: postDict)
+                        self.posts.append(post)
+                    }
+                }
+            }
+            self.tableView.reloadData()
+        })
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -28,15 +53,71 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return posts.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
+        
+        let post = posts[indexPath.row]
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
+            
+            if let image = SocialViewController.imageCache.object(forKey: post.imageUrl) {
+                cell.configureCell(post: post, image: image)
+                return cell
+            } else {
+                cell.configureCell(post: post)
+                return cell
+            }
+        } else {
+            
+            return PostCell()
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            imageAdd.image = image
+            imageSelected = true
+        } else {
+            print("A valid image wasn't selected")
+        }
+        
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func addImageTapped(_ sender: AnyObject) {
+        present(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func signInTapped(_ sender: AnyObject) {
         performSegue(withIdentifier: "goToCheckIn", sender: nil)
     }
-
+    
+    @IBAction func postButtonTapped(_ sender: AnyObject) {
+        guard let caption = captionField.text, caption != "" else {
+            print("Caption must be entered")
+            return
+        }
+        guard let image = imageAdd.image, imageSelected == true else {
+            print("An image must be selected")
+            return
+        }
+        
+        if let imageData = UIImageJPEGRepresentation(image, 0.2) {
+            
+            let imageUid = NSUUID().uuidString
+            let metadata = FIRStorageMetadata()
+            metadata.contentType = "image/jpeg"
+            
+            DataService.ds.REF_POST_IMAGES.child(imageUid).put(imageData, metadata: metadata) { (metadata, error) in
+                if error != nil {
+                    print("Unable to upload image to Firebase storage")
+                } else {
+                    print("Successfully uploaded image to Firebase storage")
+                   let downloadURL = metadata?.downloadURL()?.absoluteString
+                }
+            }
+        }
+    }
 }

@@ -23,6 +23,7 @@
 		1EAD0CE61D595B8900260B5A /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD0CE51D595B8900260B5A /* CircleView.swift */; };
 		1ECC276A1D57E97800EBF211 /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECC27691D57E97800EBF211 /* CheckInViewController.swift */; };
 		1ECEA2BD1D5A5BB1006CEA64 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECEA2BC1D5A5BB1006CEA64 /* DataService.swift */; };
+		1ECEA2BF1D5A756D006CEA64 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECEA2BE1D5A756D006CEA64 /* Post.swift */; };
 		D996A1B1A5A2F8BCC88DF78D /* Pods_The_Front_Page.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDB2A76D2CD8FD878F520D7 /* Pods_The_Front_Page.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		1EAD0CE51D595B8900260B5A /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		1ECC27691D57E97800EBF211 /* CheckInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
 		1ECEA2BC1D5A5BB1006CEA64 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		1ECEA2BE1D5A756D006CEA64 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		55B083515D2E9A8E157B4019 /* Pods-The Front Page.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Front Page.debug.xcconfig"; path = "Pods/Target Support Files/Pods-The Front Page/Pods-The Front Page.debug.xcconfig"; sourceTree = "<group>"; };
 		BFC2D40354ADD70EA64F3101 /* Pods-The Front Page.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Front Page.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Front Page/Pods-The Front Page.release.xcconfig"; sourceTree = "<group>"; };
 		CDDB2A76D2CD8FD878F520D7 /* Pods_The_Front_Page.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Front_Page.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +102,7 @@
 		1E0E6F331D574F5E00C023AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1ECEA2BE1D5A756D006CEA64 /* Post.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				1E0E6F401D57652500C023AE /* DesignText.swift in Sources */,
 				1ECC276A1D57E97800EBF211 /* CheckInViewController.swift in Sources */,
 				1ECEA2BD1D5A5BB1006CEA64 /* DataService.swift in Sources */,
+				1ECEA2BF1D5A756D006CEA64 /* Post.swift in Sources */,
 				1E0E6F3C1D5760E300C023AE /* RoundButton.swift in Sources */,
 				1E282FF21D56ABE800720EB2 /* AppDelegate.swift in Sources */,
 				1E0E6F3E1D57639700C023AE /* DesignButton.swift in Sources */,

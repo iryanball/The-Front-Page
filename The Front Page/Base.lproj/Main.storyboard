@@ -313,12 +313,16 @@
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tQz-35-L8b">
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="U2H-S6-M0w" customClass="CircleView" customModule="The_Front_Page" customModuleProvider="target">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="U2H-S6-M0w" customClass="CircleView" customModule="The_Front_Page" customModuleProvider="target">
                                                 <color key="backgroundColor" red="0.17087996010000001" green="0.6245965362" blue="0.62645757199999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="49" id="aFz-xe-7gx"/>
                                                     <constraint firstAttribute="height" constant="49" id="tEi-1q-uEX"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="p7H-V5-oVH" appends="YES" id="cZd-sb-BfF"/>
+                                                </connections>
                                             </imageView>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add a caption" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dyw-NW-Kkt" customClass="DesignText" customModule="The_Front_Page" customModuleProvider="target">
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
@@ -331,6 +335,9 @@
                                                     <constraint firstAttribute="width" constant="49" id="oNo-TT-5aw"/>
                                                 </constraints>
                                                 <state key="normal" image="add-post"/>
+                                                <connections>
+                                                    <action selector="postButtonTapped:" destination="YmH-Ag-IEa" eventType="touchUpInside" id="Ldx-WF-hJZ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -451,11 +458,18 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="captionField" destination="dyw-NW-Kkt" id="KYp-gG-PGd"/>
+                        <outlet property="imageAdd" destination="U2H-S6-M0w" id="jig-Pv-W9H"/>
                         <outlet property="tableView" destination="Ppt-5T-w70" id="ZCE-5g-ENf"/>
                         <segue destination="Zg4-l9-Ywp" kind="show" identifier="goToCheckIn" id="dgD-Du-IlO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tjK-pl-ns9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="p7H-V5-oVH">
+                    <connections>
+                        <action selector="addImageTapped:" destination="YmH-Ag-IEa" id="8a2-1M-3K0"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1488.8" y="129.98500749625188"/>
         </scene>
